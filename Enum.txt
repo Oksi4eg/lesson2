@@ -1,0 +1,14 @@
+public enum DayOfWeek {
+    MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY;
+
+    public static void getWorkingHours(DayOfWeek dayOfWeek){
+        if (dayOfWeek.ordinal() < 5) {
+            System.out.println("осталось работать: " + dayOfWeek.ordinal() * 8 + " часов");
+        };
+        System.out.println("иди домой, сегодня выходной");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        System.out.println(getWorkingHours(DayOfWeek.MONDAY));
+}
