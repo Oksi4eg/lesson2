@@ -1,0 +1,46 @@
+public class MyArraySizeException extends Exception {
+    public int raws;
+    public int columns;
+
+
+    public MyArraySizeException (String msg, int raws, int columns){
+        super(msg);
+        this.raws=raws;
+        this.columns=columns;
+    }
+}
+public class MyArrayDataException extends Exception {
+    public int raws;
+    public int columns;
+
+    public MyArrayDataException(String msg, int raws, int columns){
+        super(msg);
+        this.raws=raws;
+        this.columns=columns;
+    }
+}
+public class main {
+    public static void main(String[] args) {
+
+        int[][] matrix = {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9},
+        };
+
+        for (int i = 0; i < matrix.length; i++) {
+            if (matrix.length != 4 && matrix[i].length != 4)
+                throw new MyArrayDataException("Размер массива должен быть 4Х4", matrix.length, matrix[i].length) {
+        System.out.println("проверяем далее");
+                };
+        } ;
+
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (matrix[i][j] != Integer) throw new MyArrayDataException("не интовое значение", i, j) {
+            System.out.println("Массив заполнен верно");
+                }
+            }
+        }
+    }
+}
